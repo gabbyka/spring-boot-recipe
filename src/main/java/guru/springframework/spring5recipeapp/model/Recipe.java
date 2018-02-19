@@ -17,7 +17,7 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String descriptio;
+    private String description;
     private Integer prepTime;
     private Integer cookTime;
     private Integer servings;
@@ -42,12 +42,12 @@ public class Recipe {
         this.id = id;
     }
 
-    public String getDescriptio() {
-        return descriptio;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescriptio(String descriptio) {
-        this.descriptio = descriptio;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Integer getPrepTime() {

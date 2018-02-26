@@ -11,7 +11,6 @@ public class IndexController {
     private final RandomService randomService;
     
     public IndexController(RandomService randomService) {
-        super();
         this.randomService = randomService;
     }
 

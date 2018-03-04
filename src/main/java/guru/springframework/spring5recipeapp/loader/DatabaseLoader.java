@@ -1,8 +1,7 @@
 package guru.springframework.spring5recipeapp.loader;
 
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Optional;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import guru.springframework.spring5recipeapp.model.Category;
@@ -35,30 +34,29 @@ public class DatabaseLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Recipe hungarianSoup = new Recipe();
 
-        HashSet<Ingredient> hunSoupIngredients = new HashSet<>();
-
         Ingredient soupSaltIngerdient = new Ingredient();
         soupSaltIngerdient.setAmount(BigDecimal.valueOf(20L));
         soupSaltIngerdient.setDescription("salt");
         soupSaltIngerdient.setRecipe(hungarianSoup);
-        UnitOfMeasure soupSaltKg = unitOfMeasureRepository.findByDescription("Kg");
+        Optional<UnitOfMeasure> soupSaltKgOptional = unitOfMeasureRepository.findByDescription("Kg");
+        UnitOfMeasure soupSaltKg = soupSaltKgOptional.orElseThrow(() -> new IllegalArgumentException());
         soupSaltIngerdient.setUnitOfMeasure(soupSaltKg);
-        
-        hunSoupIngredients.add(soupSaltIngerdient);
+
+        hungarianSoup.getIngredients().add(soupSaltIngerdient);
 
         Ingredient soupMilkIngerdient = new Ingredient();
         soupMilkIngerdient.setAmount(BigDecimal.valueOf(5L));
         soupMilkIngerdient.setDescription("milk");
         soupMilkIngerdient.setRecipe(hungarianSoup);
-        UnitOfMeasure soupMilkLiter = unitOfMeasureRepository.findByDescription("Liter");
+        Optional<UnitOfMeasure> soupMilkLiterOptional = unitOfMeasureRepository.findByDescription("Liter");
+        UnitOfMeasure soupMilkLiter = soupMilkLiterOptional.orElseThrow(() -> new IllegalArgumentException());
         soupMilkIngerdient.setUnitOfMeasure(soupMilkLiter);
-        
-        hunSoupIngredients.add(soupMilkIngerdient);
+
+        hungarianSoup.getIngredients().add(soupMilkIngerdient);
 
         hungarianSoup.setDifficulity(Difficulity.EASY);
         hungarianSoup.setCookTime(60);
         hungarianSoup.setDescription("Good hungarian soup!");
-        hungarianSoup.setIngredients(hunSoupIngredients);
 
         Notes hunSoupNote = new Notes();
         hunSoupNote.setRecipeNotes("Very famous and very tasty soup from Hungary.");
@@ -73,11 +71,9 @@ public class DatabaseLoader implements CommandLineRunner {
         hungarianSoup.setSource("from an old hungarian lady");
         hungarianSoup.setUrl("http://nagyi.hu");
 
-        Set<Category> categories = new HashSet<>();
-        Category actCategory = categoryRepository.findByDescription("Hungarian");
-        categories.add(actCategory);
-
-        hungarianSoup.setCategories(categories);
+        Optional<Category> actCategoryOptional = categoryRepository.findByDescription("Hungarian");
+        Category actCategory = actCategoryOptional.orElseThrow(() -> new IllegalArgumentException());
+        hungarianSoup.getCategories().add(actCategory);
         recipeRepository.save(hungarianSoup);
 
     }

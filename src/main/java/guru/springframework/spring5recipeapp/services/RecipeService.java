@@ -1,20 +1,8 @@
 package guru.springframework.spring5recipeapp.services;
 
 import java.util.List;
-import org.springframework.stereotype.Service;
 import guru.springframework.spring5recipeapp.model.Recipe;
-import guru.springframework.spring5recipeapp.repositories.RecipeRepository;
 
-@Service
-public class RecipeService {
-    private final RecipeRepository recipeRepository;
-
-
-    public RecipeService(RecipeRepository recipeRepository) {
-        this.recipeRepository = recipeRepository;
-    }
-
-    public List<Recipe> listRecipes() {
-        return (List<Recipe>) recipeRepository.findAll();
-    }
+public interface RecipeService {
+    List<Recipe> listRecipes();
 }

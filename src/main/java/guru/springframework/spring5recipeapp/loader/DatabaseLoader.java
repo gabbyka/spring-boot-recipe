@@ -39,7 +39,7 @@ public class DatabaseLoader implements CommandLineRunner {
         soupSaltIngerdient.setDescription("salt");
         soupSaltIngerdient.setRecipe(hungarianSoup);
         Optional<UnitOfMeasure> soupSaltKgOptional = unitOfMeasureRepository.findByDescription("Kg");
-        UnitOfMeasure soupSaltKg = soupSaltKgOptional.orElseThrow(() -> new IllegalArgumentException());
+        UnitOfMeasure soupSaltKg = soupSaltKgOptional.orElseThrow(IllegalArgumentException::new);
         soupSaltIngerdient.setUnitOfMeasure(soupSaltKg);
 
         hungarianSoup.getIngredients().add(soupSaltIngerdient);
@@ -49,7 +49,7 @@ public class DatabaseLoader implements CommandLineRunner {
         soupMilkIngerdient.setDescription("milk");
         soupMilkIngerdient.setRecipe(hungarianSoup);
         Optional<UnitOfMeasure> soupMilkLiterOptional = unitOfMeasureRepository.findByDescription("Liter");
-        UnitOfMeasure soupMilkLiter = soupMilkLiterOptional.orElseThrow(() -> new IllegalArgumentException());
+        UnitOfMeasure soupMilkLiter = soupMilkLiterOptional.orElseThrow(IllegalArgumentException::new);
         soupMilkIngerdient.setUnitOfMeasure(soupMilkLiter);
 
         hungarianSoup.getIngredients().add(soupMilkIngerdient);
@@ -72,7 +72,7 @@ public class DatabaseLoader implements CommandLineRunner {
         hungarianSoup.setUrl("http://nagyi.hu");
 
         Optional<Category> actCategoryOptional = categoryRepository.findByDescription("Hungarian");
-        Category actCategory = actCategoryOptional.orElseThrow(() -> new IllegalArgumentException());
+        Category actCategory = actCategoryOptional.orElseThrow(IllegalArgumentException::new);
         hungarianSoup.getCategories().add(actCategory);
         recipeRepository.save(hungarianSoup);
 

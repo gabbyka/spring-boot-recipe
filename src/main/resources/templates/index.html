@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>Recipe Home</title>
-</head>
-<body>
-	<h1>My Recipes!</h1>
-	<table>
-		<th:block th:each="recipe : ${recipes}">
-			<tr>
-				<td th:text="${recipe.description}">...</td>
-				<td th:text="${recipe.cookTime}">...</td>
-			</tr>
-			<tr>
-				<td colspan="2" th:text="${recipe.notes.recipeNotes}">...</td>
-			</tr>
-		</th:block>
-	</table>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Recipe Home</title>
+		
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.0/dist/semantic.min.css">
+	</head>
+	<body>
+		<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.0/dist/semantic.min.js"></script>
+		<div class="ui container" style="margin-top: 3em;">
+			<div class="ui text container">
+				<h2 class="ui dividing header">Recipes</h2>
+				<table class="ui selectable celled table">
+  					<thead>
+  						<tr>
+	  						<th>ID</th>
+	  						<th>Description</th>
+	  						<th>View</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<th:block th:each="recipe : ${recipes}">
+  							<tr>
+  								<td th:text="${recipe.id}">id</td>
+  								<td th:text="${recipe.description}">desc</td>
+  								<td>View</td>
+  							</tr>
+  						</th:block>
+  					</tbody>
+				</table>
+			</div>
+		</div>
+	</body>
 </html>

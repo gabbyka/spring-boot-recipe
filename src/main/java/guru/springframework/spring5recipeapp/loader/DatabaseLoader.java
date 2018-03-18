@@ -74,6 +74,11 @@ public class DatabaseLoader implements CommandLineRunner {
         Optional<Category> actCategoryOptional = categoryRepository.findByDescription("Hungarian");
         Category actCategory = actCategoryOptional.orElseThrow(IllegalArgumentException::new);
         hungarianSoup.getCategories().add(actCategory);
+        
+        Optional<Category> actCategoryOptional2 = categoryRepository.findByDescription("Italian");
+        Category actCategory2 = actCategoryOptional2.orElseThrow(IllegalArgumentException::new);
+        hungarianSoup.getCategories().add(actCategory2);
+        
         recipeRepository.save(hungarianSoup);
 
     }

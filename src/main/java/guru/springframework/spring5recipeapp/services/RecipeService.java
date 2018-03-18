@@ -5,4 +5,6 @@ import guru.springframework.spring5recipeapp.model.Recipe;
 
 public interface RecipeService {
     List<Recipe> listRecipes();
+
+    Recipe getRecipeById(Long recipeId);
 }

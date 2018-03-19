@@ -24,7 +24,40 @@
 							</th:block>
 						</div>
 					</div>
-    					
+  				</div>
+  				<div class="ui attached segment">
+					<div class="ui stackable equal width grid">
+						<div class="column">
+							<h5>Prep time</h5>
+						</div>
+						<div class="column">
+							<p th:text="${recipe.prepTime}">prep time</p>
+						</div>
+						<div class="column">
+							<h5>Difficulity</h5>
+						</div>
+						<div class="column">
+							<p th:text="${recipe.difficulity}">prep time</p>
+						</div>
+					</div>
+  				</div>
+			</div>
+			<div class="ui section divider"></div>
+			<div class="ui text container">
+				<h3 class="ui top attached block header">Ingredients</h3>
+				<div class="ui bottom attached segment">
+					<th:block th:each="ingredient : ${recipe.ingredients}">
+						<div class="ui bulleted list">
+							<div class="item" th:text="${ingredient.amount + ' ' + ingredient.unitOfMeasure.description}">ingerdients</div>
+						</div>
+					</th:block>
+  				</div>
+			</div>
+			<div class="ui section divider"></div>
+			<div class="ui text container">
+				<h3 class="ui top attached block header">Notes</h3>
+				<div class="ui bottom attached segment">
+					<p th:text="${recipe.notes.recipeNotes}">notes</div>
   				</div>
 			</div>
 		</div>

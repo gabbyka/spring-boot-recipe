@@ -11,7 +11,7 @@
 		<div class="ui container" style="margin-top: 3em;">
 			<div class="ui text container">
 				<h3 class="ui top attached block header" th:text="${recipe.description}">Description</h3>
-				<div class="ui bottom attached segment">
+				<div class="ui attached segment">
 					<div class="ui stackable equal width grid">
 						<div class="column">
 							<h5>Categories</h5>
@@ -25,24 +25,32 @@
 						</div>
 					</div>
   				</div>
-  				<div class="ui attached segment">
+  				<div class="ui bottom attached segment">
 					<div class="ui stackable equal width grid">
 						<div class="column">
 							<h5>Prep time</h5>
+							<h5>Cooktime</h5>
+							<h5>Source</h5>
 						</div>
 						<div class="column">
 							<p th:text="${recipe.prepTime + ' min'}">prep time</p>
+							<p th:text="${recipe.cookTime + ' min'}">cook time</p>
+							<p th:text="${recipe.source}">source</p>
 						</div>
 						<div class="column">
 							<h5>Difficulity</h5>
+							<h5>Serving</h5>
+							<h5 class="middle aligned">URL</h5>
 						</div>
 						<div class="column">
 							<p th:text="${recipe.difficulity}">prep time</p>
+							<p th:text="${recipe.servings}">serving</p>
+							<a href="#" th:href="@{'${recipe.url}}" th:text="${recipe.url}">url</a>
 						</div>
 					</div>
   				</div>
 			</div>
-			<div class="ui section divider"></div>
+			<div class="ui hidden divider"></div>
 			<div class="ui text container">
 				<h3 class="ui top attached block header">Ingredients</h3>
 				<div class="ui bottom attached segment">
@@ -53,13 +61,20 @@
 					</th:block>
   				</div>
 			</div>
-			<div class="ui section divider"></div>
+			<div class="ui hidden divider"></div>
+			<div class="ui text container">
+				<h3 class="ui top attached block header">Directions</h3>
+				<div class="ui bottom attached segment">
+					<p th:text="${recipe.directions}">
+				</div>
+  			</div>
+			<div class="ui hidden divider"></div>
 			<div class="ui text container">
 				<h3 class="ui top attached block header">Notes</h3>
 				<div class="ui bottom attached segment">
-					<p th:text="${recipe.notes.recipeNotes}">notes</div>
-  				</div>
-			</div>
+					<p th:text="${recipe.notes.recipeNotes}">
+				</div>
+  			</div>
 		</div>
 	</body>
 </html>

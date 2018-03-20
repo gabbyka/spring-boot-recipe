@@ -2,8 +2,11 @@ package guru.springframework.spring5recipeapp.loader;
 
 import java.math.BigDecimal;
 import java.util.Optional;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
 import guru.springframework.spring5recipeapp.model.Category;
 import guru.springframework.spring5recipeapp.model.Difficulity;
 import guru.springframework.spring5recipeapp.model.Ingredient;
@@ -31,6 +34,7 @@ public class DatabaseLoader implements CommandLineRunner {
 
 
     @Override
+    @Transactional
     public void run(String... args) throws Exception {
         Recipe hungarianSoup = new Recipe();
 
@@ -79,6 +83,7 @@ public class DatabaseLoader implements CommandLineRunner {
         Category actCategory2 = actCategoryOptional2.orElseThrow(IllegalArgumentException::new);
         hungarianSoup.getCategories().add(actCategory2);
         
+        hungarianSoup.setDirections("This is a long description about the greates hungarian soup of all time");
         recipeRepository.save(hungarianSoup);
 
     }

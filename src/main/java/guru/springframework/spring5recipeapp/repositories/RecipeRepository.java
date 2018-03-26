@@ -8,4 +8,5 @@ public interface RecipeRepository extends CrudRepository<Recipe, Long> {
 
     Optional<Recipe> findById(Long id);
     
+    void deleteById(Long id);
 }

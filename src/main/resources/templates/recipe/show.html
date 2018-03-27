@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Recipe Home</title>
+		
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.0/dist/semantic.min.css">
+	</head>
+	<body>
+		<div class="ui container" style="margin-top: 3em;">
+			<div class="ui text container">
+				<h3 class="ui top attached block header" th:text="${recipe.description}">Description</h3>
+				<div class="ui attached segment">
+					<div class="ui stackable equal width grid">
+						<div class="column">
+							<h5>Categories</h5>
+						</div>
+						<div class="column">
+							<th:block th:each="category : ${recipe.categories}">
+								<div class="ui bulleted list">
+									<div class="item" th:text="${category.description}">category name</div>
+								</div>
+							</th:block>
+						</div>
+					</div>
+  				</div>
+  				<div class="ui bottom attached segment">
+					<div class="ui four column stackable equal width grid">
+						<div class="column">
+							<h5>Prep time</h5>
+						</div>
+						<div class="column">
+							<p th:text="${recipe.prepTime + ' min'}">prep time</p>
+						</div>
+						<div class="column">
+							<h5>Difficulity</h5>
+						</div>
+						<div class="column">
+							<p th:text="${recipe.difficulity}">prep time</p>
+						</div>
+						
+						<div class="column">
+							<h5>Cooktime</h5>
+						</div>
+						<div class="column">
+							<p th:text="${recipe.cookTime + ' min'}">cook time</p>
+						</div>
+						<div class="column">
+							<h5>Serving</h5>
+						</div>
+						<div class="column">
+							<p th:text="${recipe.servings}">serving</p>
+						</div>
+						
+						<div class="column">
+							<h5>Source</h5>
+						</div>
+						<div class="column">
+							<p th:text="${recipe.source}">source</p>
+						</div>
+						<div class="column">
+							<h5 class="middle aligned">URL</h5>
+						</div>
+						<div class="column">
+							<a href="#" th:href="@{'${recipe.url}}" th:text="${recipe.url}">url</a>
+						</div>
+					</div>
+  				</div>
+			</div>
+			<div class="ui hidden divider"></div>
+			<div class="ui text container">
+				<h3 class="ui top attached block header">Ingredients</h3>
+				<div class="ui bottom attached segment">
+					<th:block th:each="ingredient : ${recipe.ingredients}">
+						<div class="ui bulleted list">
+							<div class="item" th:text="${ingredient.amount + ' ' + ingredient.unitOfMeasure.description}">ingerdients</div>
+						</div>
+					</th:block>
+  				</div>
+			</div>
+			<div class="ui hidden divider"></div>
+			<div class="ui text container">
+				<h3 class="ui top attached block header">Directions</h3>
+				<div class="ui bottom attached segment">
+					<p th:text="${recipe.directions}">
+				</div>
+  			</div>
+			<div class="ui hidden divider"></div>
+			<div class="ui text container">
+				<h3 class="ui top attached block header">Notes</h3>
+				<div class="ui bottom attached segment">
+					<p th:text="${recipe.notes.recipeNotes}">
+				</div>
+  			</div>
+		</div>
+	</body>
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.0/dist/semantic.min.js"></script>
+	
+</html>

@@ -71,9 +71,7 @@
 			<div class="ui text container">
 				<h3 class="ui top attached block header">
 					Ingredients
-					<button class="ui right floated button">
-					  View
-					</button>
+					<a class="item" href="#" th:href="@{'/recipe/' + ${recipe.id}} + '/ingredients'"><button class="ui mini right floated button">View</button></a>
 				</h3>
 				<div class="ui bottom attached segment">
 					<th:block th:each="ingredient : ${recipe.ingredients}">

@@ -18,7 +18,9 @@
 								<h5>Description</h5>
 							</div>
 							<div class="column">
-								<input type="text" class="ui input" th:field="*{description}"/>
+								<div class="ui mini input">
+									<input type="text" th:field="*{description}"/>
+								</div>
 							</div>
 							<div class="column"></div>
 							<div class="column"></div>
@@ -44,39 +46,50 @@
 								<h5>Prep time</h5>
 							</div>
 							<div class="column">
-								<input type="text" class="ui input" th:field="*{prepTime}"/>
+								<div class="ui mini input">
+									<input type="text" th:field="*{prepTime}"/>
+								</div>
 							</div>
 							<div class="column">
 								<h5>Difficulity</h5>
 							</div>
 							<div class="column">
-								<input type="text" class="ui input" th:field="*{difficulty}"/>
+								<div class="ui mini input">
+									<input type="text" th:field="*{difficulty}"/>
+								</div>
 							</div>
 							
 							<div class="column">
 								<h5>Cooktime</h5>
 							</div>
 							<div class="column">
-								<input type="text" class="ui input" th:field="*{cookTime}"/>
+								<div class="ui mini input">
+									<input type="text" th:field="*{cookTime}"/>
+								</div>
 							</div>
 							<div class="column">
 								<h5>Serving</h5>
 							</div>
 							<div class="column">
-								<input type="text" class="ui input" th:field="*{servings}"/>
+								<div class="ui mini input">
+									<input type="text" th:field="*{servings}"/>
+								</div>
 							</div>
-							
 							<div class="column">
 								<h5>Source</h5>
 							</div>
 							<div class="column">
-								<input type="text" class="ui input" th:field="*{source}"/>
+								<div class="ui mini input">
+									<input type="text" th:field="*{source}"/>
+								</div>
 							</div>
 							<div class="column">
 								<h5 class="middle aligned">URL</h5>
 							</div>
 							<div class="column">
-								<input type="text" class="ui input" th:field="*{url}"/>
+								<div class="ui mini input">
+									<input type="text" th:field="*{url}"/>
+								</div>
 							</div>
 						</div>
 	  				</div>
@@ -84,16 +97,25 @@
 					<div class="ui text container">
 						<h3 class="ui top attached block header">Directions</h3>
 						<div class="ui bottom attached segment">
-							<textarea rows="3" th:field="*{directions}"></textarea>
+							<div class="ui form">
+								<div class="field">
+									<textarea rows="3" th:field="*{directions}"></textarea>
+								</div>
+							</div>
 						</div>
 		  			</div>
 					<div class="ui hidden divider"></div>
 					<div class="ui text container">
 						<h3 class="ui top attached block header">Notes</h3>
 						<div class="ui bottom attached segment">
-							<textarea rows="3" th:field="*{notes.recipeNotes}"></textarea>
+							<div class="ui form">
+								<div class="field">
+									<textarea rows="3" th:field="*{notes.recipeNotes}"></textarea>
+								</div>
+							</div>
 						</div>
 		  			</div>
+		  			<div class="ui hidden divider"></div>
 	  				<button type="submit" class="ui button">Submit</button>
 				</div>
 			</div>

@@ -7,9 +7,6 @@ public class UnitOfMeasureCommand {
     private Long id;
     private String description;
 
-    public UnitOfMeasureCommand() {
-    }
-
     public Long getId() {
         return id;
     }

@@ -7,9 +7,6 @@ public class CategoryCommand {
     private Long id;
     private String description;
 
-    public CategoryCommand() {
-    }
-
     public Long getId() {
         return id;
     }

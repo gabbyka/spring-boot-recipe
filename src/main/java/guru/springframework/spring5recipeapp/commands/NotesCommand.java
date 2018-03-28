@@ -7,9 +7,6 @@ public class NotesCommand {
     private Long id;
     private String recipeNotes;
 
-    public NotesCommand() {
-    }
-
     public Long getId() {
         return id;
     }

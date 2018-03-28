@@ -22,9 +22,6 @@ public class RecipeCommand {
     private NotesCommand notes;
     private Set<CategoryCommand> categories = new HashSet<>();
 
-    public RecipeCommand() {
-    }
-
     public Long getId() {
         return id;
     }

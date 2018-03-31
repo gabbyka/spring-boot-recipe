@@ -1,10 +1,62 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Ingredient Home</title>
+		
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.0/dist/semantic.min.css">
+	</head>
+	<body>
+		<form  th:object="${ingredient}" th:action="@{'/recipe/' + ${ingredient.getRecipeId()} + '/ingredient'}"  method="post">
+			<div class="ui container" style="margin-top: 3em;">
+				<input type="hidden" th:field="${ingredient.id}"/>
+				<div class="ui text container">
+					<h3 class="ui top attached block header" th:text="@{'Ingredient (' + ${ingredient.id} + ')'}">Ingredient</h3>
+					<div class="ui bottom attached segment">
+						<div class="ui four column stackable equal width grid">
+							<div class="column">
+								<h5>Description</h5>
+							</div>
+							<div class="column">
+								<div class="ui mini input">
+									<input type="text" th:field="${ingredient.description}"/>
+								</div>
+							</div>
+							<div class="column">
+								<h5>UOM</h5>
+							</div>
+							<div class="column">
+								<div class="ui mini select">
+									<select name="uom.id">
+		                                 <option th:each="uomEach : ${uomList}"
+		                                         th:value="${uomEach.id}"
+		                                         th:selected="${uomEach.id.equals(ingredient.uom.id)}"
+		                                         th:text="${uomEach.description}">Each</option>
+		                             </select>
+	                             </div>
+							</div>
+							<div class="column">
+								<h5>Amount</h5>
+							</div>
+							<div class="column">
+								<div class="ui mini input">
+									<input type="number" th:field="${ingredient.amount}"/>
+								</div>
+							</div>
+							<div class="column"></div>
+							<div class="column"></div>
+						</div>
+	  				</div>
+	  				<div class="ui hidden divider"></div>
+					<button type="submit" class="ui button">Submit</button>
+				</div>
+				<div class="ui hidden divider"></div>
+			</div>
+		</form>
+	</body>
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.0/dist/semantic.min.js"></script>
+	
+</html>
 </html>

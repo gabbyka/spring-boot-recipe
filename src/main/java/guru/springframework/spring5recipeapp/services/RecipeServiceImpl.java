@@ -32,6 +32,11 @@ public class RecipeServiceImpl implements RecipeService {
         Optional<Recipe> recipeOptional = recipeRepository.findById(recipeId);
         return recipeOptional.orElseThrow(IllegalArgumentException::new);
     }
+    
+    @Override
+    public Optional<Recipe> getOptionalRecipeById(Long recipeId) {
+        return recipeRepository.findById(recipeId);
+    }
 
     @Override
     @Transactional

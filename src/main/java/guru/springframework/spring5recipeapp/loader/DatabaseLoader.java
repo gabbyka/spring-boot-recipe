@@ -44,7 +44,7 @@ public class DatabaseLoader implements CommandLineRunner {
         soupSaltIngerdient.setRecipe(hungarianSoup);
         Optional<UnitOfMeasure> soupSaltKgOptional = unitOfMeasureRepository.findByDescription("Kg");
         UnitOfMeasure soupSaltKg = soupSaltKgOptional.orElseThrow(IllegalArgumentException::new);
-        soupSaltIngerdient.setUnitOfMeasure(soupSaltKg);
+        soupSaltIngerdient.setUom(soupSaltKg);
 
         hungarianSoup.getIngredients().add(soupSaltIngerdient);
 
@@ -54,7 +54,7 @@ public class DatabaseLoader implements CommandLineRunner {
         soupMilkIngerdient.setRecipe(hungarianSoup);
         Optional<UnitOfMeasure> soupMilkLiterOptional = unitOfMeasureRepository.findByDescription("Liter");
         UnitOfMeasure soupMilkLiter = soupMilkLiterOptional.orElseThrow(IllegalArgumentException::new);
-        soupMilkIngerdient.setUnitOfMeasure(soupMilkLiter);
+        soupMilkIngerdient.setUom(soupMilkLiter);
 
         hungarianSoup.getIngredients().add(soupMilkIngerdient);
 

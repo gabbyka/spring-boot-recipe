@@ -76,7 +76,7 @@
 				<div class="ui bottom attached segment">
 					<th:block th:each="ingredient : ${recipe.ingredients}">
 						<div class="ui bulleted list">
-							<div class="item" th:text="${ingredient.amount + ' ' + ingredient.unitOfMeasure.description}">ingerdients</div>
+							<div class="item" th:text="${ingredient.amount + ' ' + ingredient.uom.description}">ingerdients</div>
 						</div>
 					</th:block>
   				</div>

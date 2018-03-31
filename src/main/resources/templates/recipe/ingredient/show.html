@@ -9,21 +9,29 @@
 	<body>
 		<div class="ui container" style="margin-top: 3em;">
 			<div class="ui text container">
-				<h3 class="ui top attached block header">Ingredient</h3>
+				<h3 class="ui top attached block header" th:text="@{'Ingredient (' + ${ingredient.id} + ')'}">Ingredient</h3>
 				<div class="ui bottom attached segment">
 					<div class="ui four column stackable equal width grid">
-						<div class="column">
-							<h5>Id</h5>
-						</div>
-						<div class="column">
-							<p th:text="${ingredient.id}">ingredient id</p>
-						</div>
 						<div class="column">
 							<h5>Description</h5>
 						</div>
 						<div class="column">
 							<p th:text="${ingredient.description}">ingredient description</p>
 						</div>
+						<div class="column">
+							<h5>UOM description</h5>
+						</div>
+						<div class="column">
+							<p th:text="${ingredient.unitOfMeasure.description}">UOM description</p>
+						</div>
+						<div class="column">
+							<h5>Amount</h5>
+						</div>
+						<div class="column">
+							<p th:text="${ingredient.amount}">ingredient description</p>
+						</div>
+						<div class="column"></div>
+						<div class="column"></div>
 					</div>
   				</div>
 			</div>

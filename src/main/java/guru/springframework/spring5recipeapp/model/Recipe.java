@@ -1,5 +1,6 @@
 package guru.springframework.spring5recipeapp.model;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -157,5 +158,5 @@ public class Recipe {
     public void setCategories(Set<Category> categories) {
         this.categories = categories;
     }
-
+    
 }

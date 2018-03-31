@@ -54,8 +54,14 @@
 								<h5>Difficulity</h5>
 							</div>
 							<div class="column">
-								<div class="ui mini input">
-									<input type="text" th:field="*{difficulty}"/>
+								<div class="ui mini select">
+									<select th:field="*{difficulty}">
+                                        <option th:each="difficultyValue : ${T(guru.springframework.spring5recipeapp.model.Difficulity).values()}"
+                                                th:value="${difficultyValue.name()}"
+                                                th:text="${difficultyValue.name()}"
+                                        >val</option>
+                                    </select>
+<!-- 									<input type="text" th:field="*{difficulty}"/> -->
 								</div>
 							</div>
 							

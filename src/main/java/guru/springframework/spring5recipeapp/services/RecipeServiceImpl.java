@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import guru.springframework.spring5recipeapp.commands.RecipeCommand;
 import guru.springframework.spring5recipeapp.converters.RecipeCommandToRecipe;
 import guru.springframework.spring5recipeapp.converters.RecipeToRecipeCommand;
+import guru.springframework.spring5recipeapp.exceptions.NotFoundException;
 import guru.springframework.spring5recipeapp.model.Recipe;
 import guru.springframework.spring5recipeapp.repositories.RecipeRepository;
 
@@ -30,7 +31,7 @@ public class RecipeServiceImpl implements RecipeService {
     @Override
     public Recipe getRecipeById(Long recipeId) {
         Optional<Recipe> recipeOptional = recipeRepository.findById(recipeId);
-        return recipeOptional.orElseThrow(IllegalArgumentException::new);
+        return recipeOptional.orElseThrow(() -> new NotFoundException("Recipe not found!"));
     }
     
     @Override

@@ -19,14 +19,20 @@
 					<div class="ui attached segment">
 						<div class="ui four column stackable equal width grid">
 							<div class="column">
-								<h5>Description</h5>
+								<h5 th:text="#{recipe.description}">Description</h5>
 							</div>
 							<div class="column">
 								<div class="ui mini input">
 									<input type="text" th:field="*{description}"/>
 								</div>
 							</div>
-							<div class="column"></div>
+							<div class="column">
+								<div class="ui left pointing red basic label" th:if="${#fields.hasErrors('description')}">
+								      <ul>
+                                            <li th:each="err : ${#fields.errors('description')}" th:text="${err}"/>
+                                        </ul>
+							    </div>
+							</div>
 							<div class="column"></div>
 						</div>
 	  				</div>
@@ -111,6 +117,11 @@
 								<div class="field">
 									<textarea rows="3" th:field="*{directions}"></textarea>
 								</div>
+								<div class="ui pointing red basic label" th:if="${#fields.hasErrors('directions')}">
+								      <ul>
+                                            <li th:each="err : ${#fields.errors('directions')}" th:text="${err}"/>
+                                        </ul>
+							    </div>
 							</div>
 						</div>
 		  			</div>

@@ -25,4 +25,9 @@ public class IndexController {
     public String getLoginPage() {
         return "login";
     }
+    
+    @GetMapping("/menu")
+    public String getMenuPage() {
+        return "menu";
+    }
 }
